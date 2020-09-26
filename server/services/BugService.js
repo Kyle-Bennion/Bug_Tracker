@@ -7,12 +7,12 @@ class BugService {
     return await dbContext.Bugs.find({ creatorEmail: userEmail }).populate("creator", "name picture")
   }
 
-  async getAllListsByBoardId(boardId, userEmail) {
-    return await dbContext.Lists.find({ boardId, creatorEmail: userEmail }).populate("creator", "name picture")
+  async getAllNotesByBugId(bugId, userEmail) {
+    return await dbContext.Notes.find({ bugId, creatorEmail: userEmail }).populate("creator", "name picture")
   }
 
   async getById(id, userEmail) {
-    let data = await dbContext.Boards.findOne({ _id: id, creatorEmail: userEmail })
+    let data = await dbContext.Bugs.findOne({ _id: id, creatorEmail: userEmail })
     if (!data) {
       throw new BadRequest("Invalid ID or you do not own this board")
     }
@@ -20,12 +20,12 @@ class BugService {
   }
 
   async create(rawData) {
-    let data = await dbContext.Boards.create(rawData)
+    let data = await dbContext.Bugs.create(rawData)
     return data
   }
 
   async edit(id, userEmail, update) {
-    let data = await dbContext.Boards.findOneAndUpdate({ _id: id, creatorEmail: userEmail }, update, { new: true })
+    let data = await dbContext.Bugs.findOneAndUpdate({ _id: id, creatorEmail: userEmail }, update, { new: true })
     if (!data) {
       throw new BadRequest("Invalid ID or you do not own this board");
     }
@@ -33,7 +33,7 @@ class BugService {
   }
 
   async delete(id, userEmail) {
-    let data = await dbContext.Boards.findOneAndRemove({ _id: id, creatorEmail: userEmail });
+    let data = await dbContext.Bugs.findOneAndRemove({ _id: id, creatorEmail: userEmail });
     if (!data) {
       throw new BadRequest("Invalid ID or you do not own this board");
     }
