@@ -1,6 +1,5 @@
 import mongoose from "mongoose"
 let Schema = mongoose.Schema
-let ObjectId = Schema.Types.ObjectId
 
 const Bug = new Schema({
   closed: { type: Boolean, required: true, default: false },

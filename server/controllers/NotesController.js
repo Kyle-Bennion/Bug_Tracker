@@ -8,10 +8,10 @@ import { noteService } from '../services/NoteService.js'
 //PUBLIC
 export class NotesController extends BaseController {
   constructor() {
-    super("api/bugs/:id/notes")
+    super("api/notes")
     this.router
     .use(auth0provider.getAuthorizedUserInfo)
-      .get('/:bugs/:id/notes', this.getAllNotesByBugId)
+      .get('/bugs/:id/notes', this.getAllNotesByBugId)
       .post('', this.create)
       .delete('/:id', this.delete)
   }

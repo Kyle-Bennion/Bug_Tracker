@@ -9,14 +9,14 @@ class NoteService {
   }
 
   async create(rawData) {
-    let data = await dbContext.Bugs.create(rawData)
+    let data = await dbContext.Notes.create(rawData)
     return data
   }
 
   async delete(id, userEmail) {
-    let data = await dbContext.Bugs.findOneAndRemove({ _id: id, creatorEmail: userEmail });
+    let data = await dbContext.Notes.findOneAndRemove({ _id: id, creatorEmail: userEmail });
     if (!data) {
-      throw new BadRequest("Invalid ID or you do not own this board");
+      throw new BadRequest("Invalid ID or you do not own this Note");
     }
   }
 
