@@ -20,6 +20,8 @@ const routes = [
     component: Profile,
     beforeEnter: authGuard,
   },
+  // FIXME Pretty Sure im going to need to add path
+  // /bugs and /notes
 ];
 
 const router = new VueRouter({
