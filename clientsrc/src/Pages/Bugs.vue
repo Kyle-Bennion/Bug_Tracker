@@ -1,17 +1,17 @@
 <template>
   <div class="Bugs text-light text-center">
     <h1>All Bugs</h1>
-<div class="row d-flex justify-content-around">
+<div class="row d-flex justify-content-around boarder">
   <div class="col-3"> Title </div>
   <div class="col-3"> Reported by </div>
   <div class="col-3"> Status </div>
   <div class="col-3"> Last Modified </div>
 </div>
 <div class="container-fluid">
-<div class="row">
-<ul class="col-12">
+<div class="row d-flex justify-content-around">
+<card class="card col-12">
   <bugs-component v-for="bug in bugs" :key="bug.id" :bugProp="bug"/>
-</ul>
+</card>
 </div>
 </div>
   </div>
@@ -43,5 +43,7 @@ export default {
 
 
 <style scoped>
-
+.spcbackground{
+  background-color: azure;
+}
 </style>

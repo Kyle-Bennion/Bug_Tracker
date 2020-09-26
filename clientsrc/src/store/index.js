@@ -20,6 +20,9 @@ export default new Vuex.Store({
     },
     setBugs(state, bugs){
       state.bugs = bugs
+    },
+    setActiveBug(state,bug){
+      state.activeBug = bug
     }
   },
   actions: {
@@ -49,6 +52,14 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
+    async getActiveBug({commit},bugId){
+      try {
+        let res = await api.get("bugs/" + bugId)
+        commit("setActiveBug", res.data)
+      } catch (error) {
+        console.error(error);
+      }
+    }
     //#endregion
 
     //#region Notes

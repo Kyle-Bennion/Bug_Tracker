@@ -1,6 +1,8 @@
 <template>
   <div class="BugComponent">
-    <li> {{bugProp.title}} - {{bugProp.description}}</li>
+    <div class="card text-dark d-flex">
+<div class="card-body">{{bugProp.title}} {{bugProp.creatorEmail}} {{bugProp.closed}} {{bugProp.createdAt}}</div>
+    </div>
   </div>
 </template>
 
