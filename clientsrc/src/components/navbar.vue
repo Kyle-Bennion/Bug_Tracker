@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <router-link class="navbar-brand" :to="{ name: 'Home' }"
+    <router-link class="navbar-brand" :to="{ name: 'Bugs' }"
       ><b> FindAFix </b></router-link
     >
     <button
@@ -16,9 +16,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item" :class="{ active: $route.name == 'Home' }">
-          <router-link :to="{ name: 'Home' }" class="nav-link"
-            >Home</router-link
+        <li class="nav-item" :class="{ active: $route.name == 'Bugs' }">
+          <router-link :to="{ name: 'Bugs' }" class="nav-link"
+            >Bugs</router-link
           >
         </li>
         <li

@@ -17,6 +17,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    //#region Auth0
     setBearer({ }, bearer) {
       api.defaults.headers.authorization = bearer;
     },
@@ -30,6 +31,16 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error);
       }
-    }
+    },
+    //#endregion
+
+    //#region Bugs
+
+    //#endregion
+
+    //#region Notes
+
+    //#endregion
   }
+
 });
