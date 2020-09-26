@@ -3,7 +3,7 @@ import { BadRequest } from "../utils/Errors"
 
 
 class BugService {
-  async getAll(query = {}) {
+  async getAllBugs(query = {}) {
     return await dbContext.Bugs.find(query).populate("creator", "name picture")
   }
 

@@ -9,11 +9,17 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    profile: {}
+    profile: {},
+    bugs: []
+
+
   },
   mutations: {
     setProfile(state, profile) {
       state.profile = profile;
+    },
+    setBugs(state, bugs){
+      state.bugs = bugs
     }
   },
   actions: {
@@ -35,7 +41,14 @@ export default new Vuex.Store({
     //#endregion
 
     //#region Bugs
-
+    async getAllBugs({commit}){
+      try {
+        let res = await api.get("bugs")
+        commit("setBugs", res.data)
+      } catch (error) {
+        console.error(error);
+      }
+    },
     //#endregion
 
     //#region Notes

@@ -10,7 +10,7 @@ export class BugsController extends BaseController {
   constructor() {
     super("api/bugs")
     this.router
-    .get('', this.getAll)
+    .get('', this.getAllBugs)
     .use(auth0provider.getAuthorizedUserInfo)
       .get('/:bugs/:id', this.getAllNotesByBugId)
       .get('/:id', this.getById)
@@ -20,10 +20,10 @@ export class BugsController extends BaseController {
   }
 
 
-  async getAll(req, res, next) {
+  async getAllBugs(req, res, next) {
     try {
       //only gets boards by user who is logged in
-      let data = await bugService.getAll(req.query)
+      let data = await bugService.getAllBugs(req.query)
       return res.send(data)
     }
     catch (err) { next(err) }
