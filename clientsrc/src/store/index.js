@@ -93,6 +93,14 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
+      async deleteNote({dispatch},noteProp){
+        try {
+          let res = await api.delete('/notes/' + noteProp.id)
+          dispatch('getAllNotesByBugId', noteProp.bug)
+        } catch (error) {
+          console.error(error);
+        }
+      }
 
     //#endregion
   }

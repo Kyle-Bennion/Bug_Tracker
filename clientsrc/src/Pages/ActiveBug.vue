@@ -32,7 +32,7 @@
       <input type="text" class="form-control" placeholder="Bug Comment..." v-model="formData.content" required>
     </div>
   </div>
-        <button type="submit" class="btn btn-warning">REPORT!</button>
+        <button type="submit" class="btn btn-warning">Comment...</button>
 </form>
         <div class="card">
           <div class="row d-flex justify-content-between boarder text-center">
@@ -83,6 +83,7 @@ export default {
       this.$store.dispatch('createNote', {content:this.formData.content, bug:this.$route.params.id});
       this.formData = {content: ""}
     },
+
   },
   components: {
     noteComponent
