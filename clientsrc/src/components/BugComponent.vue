@@ -1,6 +1,6 @@
 <template>
   <div class="BugComponent">
-    <div class="card text-dark d-flex">
+    <div class="card text-dark d-flex pointer" @click="setActive">
 <div class="card-body">{{bugProp.title}} {{bugProp.creatorEmail}} {{bugProp.closed}} {{bugProp.createdAt}}</div>
     </div>
   </div>
@@ -15,7 +15,11 @@ export default {
     return {}
   },
   computed:{},
-  methods:{},
+  methods:{
+    setActive(){
+      this.$store.dispatch("getActiveBug", this.bugProp.id)
+    }
+  },
   components:{},
   props: ["bugProp"]
 }
@@ -23,5 +27,7 @@ export default {
 
 
 <style scoped>
-
+.pointer{
+  cursor: pointer;
+}
 </style>

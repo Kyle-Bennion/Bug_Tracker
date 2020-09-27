@@ -5,6 +5,8 @@ import Bugs from "../Pages/Bugs.vue";
 // @ts-ignore
 import Profile from "../Pages/Profile.vue";
 import { authGuard } from "@bcwdev/auth0-vue";
+// @ts-ignore
+import  ActiveBug from "../Pages/ActiveBug.vue"
 
 Vue.use(VueRouter);
 
@@ -19,6 +21,16 @@ const routes = [
     name: "Profile",
     component: Profile,
     beforeEnter: authGuard,
+  },
+  {
+    path: "/bugs/:id",
+    name: "ActiveBug",
+    component: ActiveBug,
+    beforeEnter: authGuard,
+  },
+  {
+    path: "*",
+    redirect: '/'
   },
   // FIXME Pretty Sure im going to need to add path
   // /bugs and /notes

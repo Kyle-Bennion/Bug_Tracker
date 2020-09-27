@@ -9,9 +9,9 @@
 </div>
 <div class="container-fluid">
 <div class="row d-flex justify-content-around">
-<card class="card col-12">
+<div class="card col-12">
   <bugs-component v-for="bug in bugs" :key="bug.id" :bugProp="bug"/>
-</card>
+</div>
 </div>
 </div>
   </div>

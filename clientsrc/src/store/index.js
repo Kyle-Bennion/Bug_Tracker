@@ -10,9 +10,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     profile: {},
-    bugs: []
-
-
+    bugs: [],
+    activeBug: {},
   },
   mutations: {
     setProfile(state, profile) {
@@ -56,6 +55,7 @@ export default new Vuex.Store({
       try {
         let res = await api.get("bugs/" + bugId)
         commit("setActiveBug", res.data)
+        router.push({name: "ActiveBug", params: {id: res.data.id}})
       } catch (error) {
         console.error(error);
       }
