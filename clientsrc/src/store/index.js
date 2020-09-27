@@ -84,7 +84,16 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error);
       }
-}
+},
+    async createNote({dispatch},noteData){
+      try {
+        await api.post('/notes',noteData),
+        dispatch('getAllNotesByBugId', noteData.bug)
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
     //#endregion
   }
 

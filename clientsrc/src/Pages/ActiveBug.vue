@@ -1,7 +1,7 @@
 <template>
   <div class="ActiveBugComponent">
     <div class="container-fluid">
-      <div class="row d-flex justify-content-around">
+      <div class="row d-flex justify-content-around mt-1">
         <div class="card col-11">
           <h6><i>Title:</i></h6>
           <div class="card-body">
@@ -25,12 +25,22 @@
       </div>
     </div>
     <div class="row d-flex justify-content-around">
-      <div class="col-11">
+      <div class="col-10">
+<form @submit.prevent="addNote" class="d-flex justify-content-end my-1">
+  <div class="row col-9 justify-content-end">
+    <div class="col-3">
+      <input type="text" class="form-control" placeholder="Bug Comment..." v-model="formData.content" required>
+    </div>
+  </div>
+        <button type="submit" class="btn btn-warning">REPORT!</button>
+</form>
         <div class="card">
           <div class="row d-flex justify-content-between boarder text-center">
             <div class="col-3"><h3>Name</h3></div>
             <div class="col-3"><h3>Message</h3></div>
             <div class="col-3"><h3>Delete</h3></div>
+          </div>
+          <div class="row">
           </div>
           <div class="row justify-content-between boarder">
             <div class="card-body">
@@ -49,10 +59,16 @@ import noteComponent from "../components/NoteComponent.vue"
 export default {
   name: "component",
   mounted(){
-    this.$store.dispatch("getAllNotesByBugId", this.$route.params.id)
+    this.$store.dispatch("getAllNotesByBugId", this.$route.params.id),
+    this.$store.dispatch('getActiveBug', this.$route.params.id)
+
   },
   data() {
-    return {};
+    return {
+      formData: {
+        content: ""
+      }
+    };
   },
   computed: {
     bug() {
@@ -62,7 +78,12 @@ export default {
       return this.$store.state.notes;
     },
   },
-  methods: {},
+  methods: {
+    addNote(){
+      this.$store.dispatch('createNote', {content:this.formData.content, bug:this.$route.params.id});
+      this.formData = {content: ""}
+    },
+  },
   components: {
     noteComponent
   },
