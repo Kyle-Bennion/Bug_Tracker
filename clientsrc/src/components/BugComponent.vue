@@ -1,7 +1,7 @@
 <template>
   <div class="BugComponent">
     <div class="card text-dark d-flex pointer" @click="setActive">
-<div class="card-body">{{bugProp.title}} {{bugProp.creatorEmail}} {{bugProp.closed}} {{bugProp.createdAt}}</div>
+<div class="card-body">{{bugProp.title}} {{bugProp.creatorEmail}} {{bugProp.closed}} {{bugProp.updatedAt}}</div>
     </div>
   </div>
 </template>
@@ -12,12 +12,20 @@
 export default {
   name: 'BugComponent',
   data(){
-    return {}
+    return {
+      bugData:{}
+    }
   },
   computed:{},
   methods:{
     setActive(){
       this.$store.dispatch("getActiveBug", this.bugProp.id)
+    },
+    addBug(){
+      this.$store.dispatch("createBug", {
+        title: this.bugData.title,
+        description: this.bugData.description
+      })
     }
   },
   components:{},

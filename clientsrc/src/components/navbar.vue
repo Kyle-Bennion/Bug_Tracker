@@ -32,7 +32,6 @@
         </li>
       </ul>
       <span class="navbar-text">
-        <button class="btn btn-warning">Report A Bug</button>
         <button
           class="btn btn-success"
           @click="login"
