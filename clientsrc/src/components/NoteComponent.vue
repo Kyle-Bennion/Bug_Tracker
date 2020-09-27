@@ -1,9 +1,9 @@
 <template>
   <div class="NoteComponent">
-      <div class="card text-center">
-        <div class="col-4">{{ noteProp.creatorEmail }}</div>
-        <div class="col-4">{{ noteProp.content }}</div>
-        <div class="col-4"><button class="btn btn-red">Delete</button></div>
+      <div class="card d-flex flex-row justify-content-centerS">
+        <div class="card-body col-3">{{ noteProp.creatorEmail }}</div>
+        <div class="card-body col-8">{{ noteProp.content }}</div>
+        <div class="card-body col-1 justify-content-e"><button class="btn btn-danger">Delete</button></div>
       </div>
   </div>
 </template>

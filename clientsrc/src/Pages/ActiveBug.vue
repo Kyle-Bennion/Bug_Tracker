@@ -32,8 +32,10 @@
             <div class="col-3"><h3>Message</h3></div>
             <div class="col-3"><h3>Delete</h3></div>
           </div>
-          <div class="row">
+          <div class="row justify-content-between boarder">
+            <div class="card-body">
             <note-component v-for="note in notes" :key="note.id" :noteProp="note"/>
+            </div>
           </div>
         </div>
       </div>
