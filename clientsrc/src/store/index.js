@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import router from "../router";
 import { api } from "./AxiosService"
+import ns from "../store/NotificationService"
 
 Vue.use(Vuex);
 
@@ -95,8 +96,9 @@ export default new Vuex.Store({
     },
       async deleteNote({dispatch},noteProp){
         try {
-          let res = await api.delete('/notes/' + noteProp.id)
-          dispatch('getAllNotesByBugId', noteProp.bug)
+          if(await ns.confirmAction("Do you want to delete this note?", "Delorted")){
+          await api.delete('/notes/' + noteProp.id)
+          dispatch('getAllNotesByBugId', noteProp.bug)}
         } catch (error) {
           console.error(error);
         }
