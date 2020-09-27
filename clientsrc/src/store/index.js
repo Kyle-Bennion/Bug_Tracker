@@ -22,7 +22,10 @@ export default new Vuex.Store({
     },
     setActiveBug(state,bug){
       state.activeBug = bug
-    }
+    },
+    addBug(state, bug){
+      state.bugs.push(bug)
+    },
   },
   actions: {
     //#region Auth0
@@ -50,6 +53,10 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error);
       }
+    },
+    async createBug({commit},bugData){
+      let res = await api.post('bugs',bugData)
+      commit('addbug',  res.data)
     },
     async getActiveBug({commit},bugId){
       try {

@@ -14,7 +14,7 @@ export class BugsController extends BaseController {
     .use(auth0provider.getAuthorizedUserInfo)
       .get('/:bugs/:id', this.getAllNotesByBugId)
       .get('/:id', this.getById)
-      .post('', this.create)
+      .post('', this.createBug)
       .put('/:id', this.edit)
       .delete('/:id', this.delete)
   }
@@ -45,7 +45,7 @@ export class BugsController extends BaseController {
     } catch (error) { next(error) }
   }
 
-  async create(req, res, next) {
+  async createBug(req, res, next) {
     try {
       req.body.creatorEmail = req.userInfo.email
       let data = await bugService.create(req.body)

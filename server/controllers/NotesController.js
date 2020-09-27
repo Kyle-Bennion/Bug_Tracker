@@ -12,7 +12,7 @@ export class NotesController extends BaseController {
     this.router
     .use(auth0provider.getAuthorizedUserInfo)
       .get('/bugs/:id/notes', this.getAllNotesByBugId)
-      .post('', this.create)
+      .post('', this.createNote)
       .delete('/:id', this.delete)
   }
 
@@ -25,7 +25,7 @@ export class NotesController extends BaseController {
     catch (err) { next(err) }
   }
 
-  async create(req, res, next) {
+  async createNote(req, res, next) {
     try {
       req.body.creatorEmail = req.userInfo.email
       let data = await noteService.create(req.body)
