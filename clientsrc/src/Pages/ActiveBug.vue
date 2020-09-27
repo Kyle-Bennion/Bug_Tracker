@@ -32,8 +32,8 @@
             <div class="col-3"><h3>Message</h3></div>
             <div class="col-3"><h3>Delete</h3></div>
           </div>
-          <div class="card text-center">
-            <h1>This is where notes go</h1>
+          <div class="row">
+            <note-component v-for="note in notes" :key="note.id" :noteProp="note"/>
           </div>
         </div>
       </div>
@@ -43,8 +43,12 @@
 
 
 <script>
+import noteComponent from "../components/NoteComponent.vue"
 export default {
   name: "component",
+  mounted(){
+    this.$store.dispatch("getAllNotesByBugId", this.$route.params.id)
+  },
   data() {
     return {};
   },
@@ -52,9 +56,14 @@ export default {
     bug() {
       return this.$store.state.activeBug;
     },
+    notes(){
+      return this.$store.state.notes;
+    },
   },
   methods: {},
-  components: {},
+  components: {
+    noteComponent
+  },
 };
 </script>
 

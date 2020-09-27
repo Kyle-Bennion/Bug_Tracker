@@ -12,6 +12,7 @@ export default new Vuex.Store({
     profile: {},
     bugs: [],
     activeBug: {},
+    notes:[]
   },
   mutations: {
     setProfile(state, profile) {
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     addBug(state, bug){
       state.bugs.push(bug)
     },
+    setNotes(state, notes){
+      state.notes = notes
+    }
   },
   actions: {
     //#region Auth0
@@ -68,11 +72,19 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error);
       }
-    }
+    },
     //#endregion
 
     //#region Notes
-
+    async getAllNotesByBugId({commit}, bugId){
+      try {
+        let res = await api.get('bugs/' + bugId + '/notes')
+        console.log(res)
+        commit('setNotes', res.data)
+      } catch (error) {
+        console.error(error);
+      }
+}
     //#endregion
   }
 
