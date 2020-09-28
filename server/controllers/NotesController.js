@@ -10,20 +10,20 @@ export class NotesController extends BaseController {
   constructor() {
     super("api/notes")
     this.router
-    .use(auth0provider.getAuthorizedUserInfo)
-      .get('/bugs/:id/notes', this.getAllNotesByBugId)
+      .use(auth0provider.getAuthorizedUserInfo)
+      // .get('/bugs/:id/notes', this.getAllNotesByBugId)
       .post('', this.createNote)
       .delete('/:id', this.delete)
   }
 
-  async getAllNotesByBugId(req, res, next) {
-    try {
-      //only gets lists by user who is logged in
-      let data = await noteService.getAllNotesByBugId(req.params.bugId, req.userInfo.email)
-      return res.send(data)
-    }
-    catch (err) { next(err) }
-  }
+  // async getAllNotesByBugId(req, res, next) {
+  //   try {
+  //     //only gets lists by user who is logged in
+  //     let data = await noteService.getAllNotesByBugId(req.params.id)
+  //     return res.send(data)
+  //   }
+  //   catch (err) { next(err) }
+  // }
 
   async createNote(req, res, next) {
     try {

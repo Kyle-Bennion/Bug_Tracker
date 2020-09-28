@@ -7,12 +7,12 @@ class BugService {
     return await dbContext.Bugs.find(query).populate("creator", "name picture")
   }
 
-  async getAllNotesByBugId(bugId, userEmail) {
-    return await dbContext.Notes.find({ bugId, creatorEmail: userEmail }).populate("creator", "name picture")
+  async getAllNotesByBugId(bug) {
+    return await dbContext.Notes.find({ bug }).populate("creator", "name picture")
   }
 
   async getById(id, userEmail) {
-    let data = await dbContext.Bugs.findOne({ _id: id, creatorEmail: userEmail })
+    let data = await dbContext.Bugs.findOne({ _id: id })
     if (!data) {
       throw new BadRequest("Invalid ID or you do not own this board")
     }

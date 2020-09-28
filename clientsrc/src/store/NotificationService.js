@@ -27,7 +27,7 @@ export default class NotificationService {
       title: title,
       icon: icon,
       iconHtml: `<img
-        src="https://media4.giphy.com/media/QBd2kLB5qDmysEXre9/giphy.gif"
+        src="https://media.giphy.com/media/9Ai5dIk8xvBm0/giphy.gif"
         style="width: 50px"
         alt
       />`,
