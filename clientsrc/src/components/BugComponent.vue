@@ -1,47 +1,61 @@
 <template>
-  <div class="BugComponent">
-    <div class="card text-dark d-flex pointer" @click="setActive">
-<div class="card-body">{{bugProp.title}} {{bugProp.creatorEmail}} <p v-if="bugProp.closed" class="redI">Closed</p> <p class="greenI" v-if="!bugProp.closed">Open</p> {{bugProp.updatedAt}}</div>
+  <div class="BugComponent col-12">
+    <div
+      class="text-dark justify-content-around pointer row border"
+      @click="setActive"
+    >
+      <div class="col-3">
+        {{ bugProp.title }}
+      </div>
+      <div class="col-3">
+        {{ bugProp.creatorEmail }}
+      </div>
+      <div class="col-3">
+        <p v-if="bugProp.closed" class="redI">Closed</p>
+        <p class="greenI" v-if="!bugProp.closed">Open</p>
+      </div>
+      <div class="col-3">
+        {{ bugProp.updatedAt }}
+      </div>
     </div>
   </div>
 </template>
 
 
 <script>
-
 export default {
-  name: 'BugComponent',
-  data(){
+  name: "BugComponent",
+  data() {
     return {
-      bugData:{}
-    }
+      bugData: {},
+    };
   },
-  computed:{},
-  methods:{
-    setActive(){
-      this.$store.dispatch("getActiveBug", this.bugProp.id)
+  computed: {},
+  methods: {
+    setActive() {
+      this.$store.dispatch("getActiveBug", this.bugProp.id);
     },
-    addBug(){
+    addBug() {
       this.$store.dispatch("createBug", {
         title: this.bugData.title,
-        description: this.bugData.description
-      })
+        description: this.bugData.description,
+      });
     },
   },
-  components:{},
-  props: ["bugProp"]
-}
+  components: {},
+  props: ["bugProp"],
+};
 </script>
 
 
 <style scoped>
-.pointer{
+.pointer {
   cursor: pointer;
 }
-.redI{
-color: darkred;
+.redI {
+  color: rgb(199, 0, 0);
 }
-.greenI{
-color: limegreen;
+.greenI {
+  color: limegreen;
 }
 </style>
