@@ -1,7 +1,7 @@
 <template>
   <div class="BugComponent">
     <div class="card text-dark d-flex pointer" @click="setActive">
-<div class="card-body">{{bugProp.title}} {{bugProp.creatorEmail}} {{bugProp.closed}} {{bugProp.updatedAt}}</div>
+<div class="card-body">{{bugProp.title}} {{bugProp.creatorEmail}} <p v-if="bugProp.closed" class="redI">Closed</p> <p class="greenI" v-if="!bugProp.closed">Open</p> {{bugProp.updatedAt}}</div>
     </div>
   </div>
 </template>
@@ -26,7 +26,7 @@ export default {
         title: this.bugData.title,
         description: this.bugData.description
       })
-    }
+    },
   },
   components:{},
   props: ["bugProp"]
@@ -37,5 +37,11 @@ export default {
 <style scoped>
 .pointer{
   cursor: pointer;
+}
+.redI{
+color: darkred;
+}
+.greenI{
+color: limegreen;
 }
 </style>

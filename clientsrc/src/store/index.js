@@ -28,9 +28,13 @@ export default new Vuex.Store({
     addBug(state, bug){
       state.bugs.push(bug)
     },
+    editBug(state, bug){
+      let oldIndex = state.bugs.findIndex(b => b.id == bug.id)
+      state.bugs.splice(oldIndex, 1, bug)
+    },
     setNotes(state, notes){
       state.notes = notes
-    }
+    },
   },
   actions: {
     //#region Auth0
@@ -70,6 +74,23 @@ export default new Vuex.Store({
         let res = await api.get("bugs/" + bugId)
         commit("setActiveBug", res.data)
         router.push({name: "ActiveBug", params: {id: res.data.id}})
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async editBug({commit},bugData){
+      try {
+        let res = await api.put('bugs/' + bugData.id, bugData)
+        commit("editBug", res.data)
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async changeStatus({dispatch}, bugStatus){
+      try {
+        if(await ns.confirmAction("Are you sure you want to close this Bug?", "Alright Fine Its Closed")){ 
+        let res = await api.put('bugs/' + bugStatus.id, {closed: bugStatus.closed})
+        dispatch('getActiveBug', bugStatus.id)}
       } catch (error) {
         console.error(error);
       }
