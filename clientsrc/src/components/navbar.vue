@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <router-link class="navbar-brand" :to="{ name: 'Bugs' }">
-      <img src="../assets/Bug_Tracker.png" alt="" />
+      <img src="../assets/Bug_Tracker.png" height="50px" alt="" />
     </router-link>
     <button
       class="navbar-toggler"
