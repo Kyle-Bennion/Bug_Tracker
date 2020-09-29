@@ -2,7 +2,7 @@
   <div class="Bugs text-light text-center">
     <div class="row d-flex">
       <div class="col-12">
-        <h1>All Bugs</h1>
+        <h1 class="spcHeader">All Bugs</h1>
       </div>
     </div>
     <form @submit.prevent="addBug" class="d-flex">
@@ -26,20 +26,20 @@
           />
         </div>
       </div>
-      <button type="submit" class="btn btn-warning">REPORT!</button>
+      <button type="submit" class="btn btn-success">REPORT!</button>
     </form>
     <div class="row d-flex justify-content-around boarder">
       <div class="col-3 textShadow">
-        <h4><b>Title</b></h4>
+        <h4 class="spcText"><b>Title</b></h4>
       </div>
       <div class="col-3 textShadow">
-        <h4><b>Reported by</b></h4>
+        <h4 class="spcText"><b>Reported by</b></h4>
       </div>
       <div class="col-3 textShadow">
-        <h4><b>Status</b></h4>
+        <h4 class="spcText"><b>Status</b></h4>
       </div>
       <div class="col-3 textShadow">
-        <h4><b>Last Modified</b></h4>
+        <h4 class="spcText"><b>Last Modified</b></h4>
       </div>
     </div>
     <div class="container-fluid">
@@ -95,9 +95,15 @@ export default {
 
 <style scoped>
 .spcbackground {
-  background-color: azure;
+  background-color:#F1FAEE;
 }
 .textShadow {
   text-shadow: 0.5px 0.5px #070404;
+}
+.spcHeader{
+  font-size: 7vh;
+}
+.spcText{
+  font-size: 3vh;
 }
 </style>

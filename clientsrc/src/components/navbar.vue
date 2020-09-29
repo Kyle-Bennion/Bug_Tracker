@@ -67,4 +67,7 @@ export default {
 </script>
 
 <style scoped>
+.spcbkg{
+  background-color: #F1FAEE;
+}
 </style>

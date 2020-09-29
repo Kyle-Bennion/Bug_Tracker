@@ -2,23 +2,24 @@
   <div class="ActiveBugComponent">
     <div class="container-fluid">
       <div class="row d-flex justify-content-around mt-1">
-        <div class="card col-11">
-          <h6><i>Title:</i></h6>
+        <div class="card col-11 border spcbkg">
+          <h5><i>Title:</i></h5>
           <div class="card-body">
             <h1 class="">{{ bug.title }}</h1>
           </div>
-          <h6><i>Created By:</i></h6>
+          <h5 class=""><i>Created By:</i></h5>
           <div class="card-body">
             <h1>{{ bug.creatorEmail }}</h1>
           </div>
           <div class="d-flex flex-row-reverse">
-            <h6><i>Status</i></h6>
+            <h5><i>Status</i></h5>
           </div>
           <div class="card-body d-flex flex-row-reverse">
-            <h1>{{ bug.closed }}</h1>
+            <h1 v-if="bug.closed" class="redI textShadow"><b>CLOSED</b></h1>
+            <h1 v-if="!bug.closed" class="greenI textShadow"><b>OPEN</b></h1>
           </div>
-          <div class="card-body d-flex justify-content-center">
-            <h1>{{ bug.description }}</h1>
+          <div class="card-body d-flex justify-content-center word-break">
+            <h1 class="">{{ bug.description }}</h1>
           </div>
           <button
             @click="changeStatus"
@@ -27,7 +28,6 @@
           >
             Change Status
           </button>
-
           <form @submit.prevent="editBug" v-if="editToggle" class="d-flex my-1">
             <div class="row justify-content-end">
               <div class="col-12 form-inline">
@@ -79,7 +79,7 @@
             Note <i class="fa fa-plus-circle" aria-hidden="true"></i>
           </button>
         </form>
-        <div class="card">
+        <div class="card border">
           <div class="row d-flex justify-content-between boarder text-center">
             <div class="col-3"><h3>Name</h3></div>
             <div class="col-3"><h3>Message</h3></div>
@@ -154,7 +154,37 @@ export default {
 
 
 <style scoped>
-.spc1 {
-  background-color: darkolivegreen;
+.word-break {
+   word-break: break-all;
+}
+.redI {
+  color: rgb(199, 0, 0);
+}
+.greenI {
+  color: limegreen;
+}
+.textShadow {
+  text-shadow: 0.8px 0.8px #070404;
+}
+.spcUnder {
+  text-decoration: underline overline dotted #457B9D;
+}
+.border{
+  border-color: #1D3557 !important;
+  border-width: medium !important;
+}
+.spcbkg {
+  background-color: rgb(238, 238, 238);
+  border-color: solid 5px black;
+}
+.card {
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.25s;
+}
+.card{
+  box-shadow: 0 8px 25px 0 #F1FAEE;
+}
+.container {
+  padding: 2px 16px;
 }
 </style>

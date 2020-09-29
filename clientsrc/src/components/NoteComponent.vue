@@ -1,6 +1,6 @@
 <template>
   <div class="NoteComponent">
-    <div class="card d-flex flex-row justify-content-centerS">
+    <div class="card d-flex flex-row justify-content-center border">
       <div class="card-body col-3">
         <h2>{{ noteProp.creatorEmail }}</h2>
       </div>
@@ -8,7 +8,7 @@
         <h4>{{ noteProp.content }}</h4>
       </div>
       <div class="card-body col-1 justify-content-e" v-if="isOwner">
-        <button @click="deleteNote" class="btn btn-danger">
+        <button @click="deleteNote" class="btn btn-danger border">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
       </div>
@@ -43,4 +43,8 @@ export default {
 
 
 <style scoped>
+.border{
+  border-color: #1D3557 !important;
+  border-width: small !important;
+}
 </style>
