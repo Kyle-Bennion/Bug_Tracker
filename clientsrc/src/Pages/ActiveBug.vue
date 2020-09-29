@@ -5,7 +5,7 @@
         <div class="card col-11">
           <h6><i>Title:</i></h6>
           <div class="card-body">
-            <h1 class="spc1">{{ bug.title }}</h1>
+            <h1 class="">{{ bug.title }}</h1>
           </div>
           <h6><i>Created By:</i></h6>
           <div class="card-body">
@@ -20,7 +20,11 @@
           <div class="card-body d-flex justify-content-center">
             <h1>{{ bug.description }}</h1>
           </div>
-          <button @click="changeStatus" v-if="!bug.closed" class="btn btn-danger col-1 mx-1 mb-1">
+          <button
+            @click="changeStatus"
+            v-if="!bug.closed"
+            class="btn btn-danger col-1 mx-1 mb-1"
+          >
             Change Status
           </button>
 
@@ -47,7 +51,11 @@
               Edit Bug <i class="fa fa-plus-circle" aria-hidden="true"></i>
             </button>
           </form>
-          <button @click="editToggle = !editToggle" v-if="!editToggle && !bug.closed" class="btn btn-info col-1 mx-1 mb-1">
+          <button
+            @click="editToggle = !editToggle"
+            v-if="!editToggle && !bug.closed"
+            class="btn btn-info col-1 mx-1 mb-1"
+          >
             Edit Bug <i class="fa fa-plus-circle" aria-hidden="true"></i>
           </button>
         </div>
@@ -131,10 +139,12 @@ export default {
       this.$store.dispatch("editBug", this.bug);
       this.editToggle = !this.editToggle;
     },
-    changeStatus(){
-      this.$store.dispatch('changeStatus', {closed: true , id: this.$route.params.id})
-
-    }
+    changeStatus() {
+      this.$store.dispatch("changeStatus", {
+        closed: true,
+        id: this.$route.params.id,
+      });
+    },
   },
   components: {
     noteComponent,

@@ -5,14 +5,14 @@
       @click="setActive"
     >
       <div class="col-3">
-        {{ bugProp.title }}
+        <b>{{ bugProp.title }}</b>
       </div>
       <div class="col-3">
-        {{ bugProp.creatorEmail }}
+        <b>{{ bugProp.creatorEmail }}</b>
       </div>
-      <div class="col-3">
-        <p v-if="bugProp.closed" class="redI">Closed</p>
-        <p class="greenI" v-if="!bugProp.closed">Open</p>
+      <div class="col-3 textShadow">
+        <p v-if="bugProp.closed" class="redI"><b>Closed</b></p>
+        <p class="greenI" v-if="!bugProp.closed"><b>Open</b></p>
       </div>
       <div class="col-3">
         {{ bugProp.updatedAt }}
@@ -57,5 +57,8 @@ export default {
 }
 .greenI {
   color: limegreen;
+}
+.textShadow {
+  text-shadow: 0.5px 0.5px #070404;
 }
 </style>

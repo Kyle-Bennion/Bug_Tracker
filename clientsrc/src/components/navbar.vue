@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <router-link class="navbar-brand" :to="{ name: 'Bugs' }">
-      <img src="../assets/Bug_Tracker.png" height="50px" alt="" />
+      <img src="../assets/Bug_Tracker_Emblem.png" height="40px" alt="" />
     </router-link>
     <button
       class="navbar-toggler"
@@ -17,8 +17,8 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" :class="{ active: $route.name == 'Bugs' }">
-          <router-link :to="{ name: 'Bugs' }" class="nav-link"
-            >Bugs</router-link
+          <router-link :to="{ name: 'Bugs' }" class="nav-link">
+            <b>Bugs</b></router-link
           >
         </li>
         <li
@@ -66,4 +66,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+</style>

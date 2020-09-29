@@ -29,10 +29,18 @@
       <button type="submit" class="btn btn-warning">REPORT!</button>
     </form>
     <div class="row d-flex justify-content-around boarder">
-      <div class="col-3"><h4>Title</h4></div>
-      <div class="col-3"><h4>Reported by</h4></div>
-      <div class="col-3"><h4>Status</h4></div>
-      <div class="col-3"><h4>Last Modified</h4></div>
+      <div class="col-3 textShadow">
+        <h4><b>Title</b></h4>
+      </div>
+      <div class="col-3 textShadow">
+        <h4><b>Reported by</b></h4>
+      </div>
+      <div class="col-3 textShadow">
+        <h4><b>Status</b></h4>
+      </div>
+      <div class="col-3 textShadow">
+        <h4><b>Last Modified</b></h4>
+      </div>
     </div>
     <div class="container-fluid">
       <div class="row d-flex justify-content-around">
@@ -88,5 +96,8 @@ export default {
 <style scoped>
 .spcbackground {
   background-color: azure;
+}
+.textShadow {
+  text-shadow: 0.5px 0.5px #070404;
 }
 </style>
