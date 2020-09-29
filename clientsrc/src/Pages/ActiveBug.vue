@@ -155,7 +155,7 @@ export default {
 
 <style scoped>
 .word-break {
-   word-break: break-all;
+  word-break: break-all;
 }
 .redI {
   color: rgb(199, 0, 0);
@@ -167,10 +167,10 @@ export default {
   text-shadow: 0.8px 0.8px #070404;
 }
 .spcUnder {
-  text-decoration: underline overline dotted #457B9D;
+  text-decoration: underline overline dotted #457b9d;
 }
-.border{
-  border-color: #1D3557 !important;
+.border {
+  border-color: #1d3557 !important;
   border-width: medium !important;
 }
 .spcbkg {
@@ -178,11 +178,11 @@ export default {
   border-color: solid 5px black;
 }
 .card {
-  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.25s;
 }
-.card{
-  box-shadow: 0 8px 25px 0 #F1FAEE;
+.card {
+  box-shadow: 0 8px 25px 0 #f1faee;
 }
 .container {
   padding: 2px 16px;
